@@ -18,11 +18,10 @@ app.use(express.json());
 app.use("/api/contacts", contactRoutes);
 
 // 🔥 SERVE FRONTEND (ADD THIS)
-const __dirnameResolved = path.resolve();
-app.use(express.static(path.join(__dirnameResolved, "../frontend/dist")));
+app.use(express.static(path.join(__dirname, "frontend/dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirnameResolved, "../frontend/dist/index.html"));
+  res.sendFile(path.join(__dirname, "frontend/dist/index.html"));
 });
 
 // Global error handler
